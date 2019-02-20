@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { toggleAlive } from "../actions/";
+import { toggleAlive } from "../redux/actions/";
 import Cell from "../components/cell";
 
 class Table extends Component {
@@ -12,7 +12,6 @@ class Table extends Component {
           <tbody>
             {this.props.table.map((row, i) => (
               <tr key={i}>
-                {" "}
                 {row.map((cell, j) => (
                   <Cell
                     key={j}

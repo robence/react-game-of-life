@@ -6,21 +6,40 @@ import {
   startPlaying,
   stopPlaying,
   clear
-} from "../actions/";
+} from "../redux/actions/";
 
 import Button from "../components/button";
 
 class Control extends Component {
   componentDidMount() {
-    this.props.random();
+    this.props.makeRandomGrid();
     this.togglePlay();
   }
+
+  togglePlay(){
+    if (this.props.playState.isRunning) {
+      clearInterval(this.props.playState.timerId);
+      this.props.stopPlaying();
+    } else {
+      let interval = setInterval(this.props.tick,100);
+      this.props.startPlaying(interval);
+    }
+  }
+  clear() {
+    if (this.props.isRunning) {
+      clearInterval(this.props.timerId);
+      this.props.stopPlaying();
+    }
+    this.props.clear();
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="controls">
         <div className="buttons">
           <Button
-            handleClick={() => this.props.random()}
+            handleClick={() => this.props.makeRandomGrid()}
             title={"Randomise"}
             icon={"fa fa-random"}
           />
@@ -45,31 +64,15 @@ class Control extends Component {
       </div>
     );
   }
-  togglePlay() {
-    if (this.props.playState.isRunning) {
-      clearInterval(this.props.playState.timerId);
-      this.props.stopPlaying();
-    } else {
-      let interval = setInterval(this.props.tick, 100);
-      this.props.startPlaying(interval);
-    }
-  }
-  clear() {
-    if (this.props.playState.isRunning) {
-      clearInterval(this.props.playState.timerId);
-      this.props.stopPlaying();
-    }
-    this.props.clear();
-  }
 }
 
 const mapStateToProps = ({ playState }) => {
   return { playState };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    random: () => dispatch(makeRandomGrid()),
+    makeRandomGrid: () => dispatch(makeRandomGrid()),
     tick: () => dispatch(tick()),
     startPlaying: timerId => dispatch(startPlaying(timerId)),
     stopPlaying: () => dispatch(stopPlaying()),

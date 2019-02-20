@@ -1,12 +1,15 @@
-export function toggleAlive(x, y) {
+import * as types from "../types";
+
+export function toggleAlive(x,y) {
   return {
-    type: "TOGGLE_ALIVE",
+    type: types.TOGGLE_ALIVE,
     x,
     y
   };
 }
 
 export function makeRandomGrid() {
+  console.log('make random grid called');
   return {
     type: "MAKE_RANDOM"
   };

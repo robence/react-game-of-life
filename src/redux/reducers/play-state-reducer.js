@@ -1,3 +1,5 @@
+import { PLAY, STOP } from '../types'
+
 const initialState = {
   timerId: null,
   isRunning: false
@@ -5,12 +7,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "PLAY":
+    case PLAY:
       return {
         timerId: action.timerId,
         isRunning: true
       };
-    case "STOP":
+    case STOP:
       return {
         timerId: null,
         isRuninng: false
