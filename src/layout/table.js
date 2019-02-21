@@ -39,7 +39,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 Table.propTypes = {
-  table: PropTypes.object,
+  table: PropTypes.shape({
+    map: PropTypes.func,
+  }),
   toggleAlive: PropTypes.func,
 };
 
