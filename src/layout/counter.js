@@ -6,6 +6,8 @@ class Counter extends Component {
   render() {
     const style = {
       float: 'right',
+      color: 'white',
+      fontSize: 27,
     };
     return <div style={style}>Generations: {this.props.generations}</div>;
   }
