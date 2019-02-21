@@ -12,6 +12,10 @@ import {
 
 import Button from '../components/button';
 
+const inlineBlock = {
+  display: 'inline-block',
+};
+
 class Control extends Component {
   componentDidMount() {
     this.props.makeRandomGrid();
@@ -49,7 +53,7 @@ class Control extends Component {
             title={'Clear'}
             icon={'fa fa-undo'}
           />
-          <div className="button-group">
+          <div style={inlineBlock}>
             <Button
               icon={
                 this.props.playState.isRunning ? 'fa fa-pause' : 'fa fa-play'

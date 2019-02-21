@@ -18,7 +18,7 @@ export const initRows = (width, makeRandom) => {
 };
 
 export const initColumns = (grid, height, width, makeRandom) => {
-  makeArray(height).map(() => {
+  return makeArray(height).map(() => {
     grid.push(initRows(width, makeRandom));
   });
 };

@@ -5,11 +5,17 @@ import PropTypes from 'prop-types';
 import { toggleAlive } from '../redux/actions';
 import Cell from '../components/cell';
 
+const tableStyle = {
+  margin: '1.2em 0',
+  borderCollapse: 'collapse',
+  borderSpacing: '0',
+};
+
 class Table extends Component {
   render() {
     return (
       <div>
-        <table>
+        <table style={tableStyle}>
           <tbody>
             {this.props.table.map((row, i) => (
               <tr key={i}>
@@ -39,9 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 Table.propTypes = {
-  table: PropTypes.shape({
-    map: PropTypes.func,
-  }),
+  table: PropTypes.array,
   toggleAlive: PropTypes.func,
 };
 
