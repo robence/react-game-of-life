@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { toggleAlive } from "../redux/actions/";
-import Cell from "../components/cell";
+import { toggleAlive } from '../redux/actions';
+import Cell from '../components/cell';
 
 class Table extends Component {
   render() {
@@ -33,11 +34,16 @@ const mapStateToProps = ({ table }) => {
   return { table };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return { toggleAlive: (x, y) => dispatch(toggleAlive(x, y)) };
+};
+
+Table.propTypes = {
+  table: PropTypes.object,
+  toggleAlive: PropTypes.func,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Table);

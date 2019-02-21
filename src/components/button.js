@@ -1,7 +1,16 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ title, icon, handleClick }) => (
-  <span onClick={handleClick} className="button">
-    <i className={icon} /> {title}
+const Button = (props) => (
+  <span onClick={props.handleClick} className="button">
+    <i className={props.icon} /> {props.title}
   </span>
 );
+
+Button.propTypes = {
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  handleClick: PropTypes.func,
+};
+
+export default Button;

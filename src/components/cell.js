@@ -1,8 +1,19 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ alive, newBorn, handleClick }) => (
+const Cell = (props) => (
   <td
-    onClick={handleClick}
-    className={`${alive ? "alive" : ""} ${newBorn ? "new-born" : ""}`}
+    onClick={props.handleClick}
+    className={`${props.alive ? 'alive' : ''} ${
+      props.newBorn ? 'new-born' : ''
+    }`}
   />
 );
+
+Cell.propTypes = {
+  alive: PropTypes.string,
+  newBorn: PropTypes.string,
+  handleClick: PropTypes.func,
+};
+
+export default Cell;
