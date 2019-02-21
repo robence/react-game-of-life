@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+App is hosted at https://robence.github.io/react-game-of-life/
+
 ## Available Scripts
 
 In the project directory, you can run:
