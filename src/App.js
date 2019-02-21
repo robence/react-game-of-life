@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Table from "./layout/table";
-import Controls from "./layout/controls";
-import Counter from "./layout/counter";
+import Table from './layout/table';
+import Controls from './layout/controls';
+import Counter from './layout/counter';
 
 class App extends Component {
   render() {

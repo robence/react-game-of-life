@@ -1,4 +1,4 @@
-import { TICK, CLEAR, MAKE_RANDOM } from '../types'
+import { TICK, CLEAR, MAKE_RANDOM } from '../types';
 
 const counter = (state = 0, action) => {
   switch (action.type) {

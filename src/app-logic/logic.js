@@ -9,7 +9,7 @@ export const makeGrid = (height, width, makeRandom = false) => {
       }
       row.push({
         status: value,
-        newBorn: value
+        newBorn: value,
       });
     }
     grid.push(row);
@@ -58,7 +58,7 @@ export const advanceGrid = function(grid = []) {
         if (neighbours === 3) {
           row.push({
             status: 1,
-            newBorn: true
+            newBorn: true,
           });
         } else {
           row.push({ status: 0 });

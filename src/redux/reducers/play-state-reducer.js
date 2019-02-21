@@ -1,8 +1,8 @@
-import { PLAY, STOP } from '../types'
+import { PLAY, STOP } from '../types';
 
 const initialState = {
   timerId: null,
-  isRunning: false
+  isRunning: false,
 };
 
 export default (state = initialState, action) => {
@@ -10,12 +10,12 @@ export default (state = initialState, action) => {
     case PLAY:
       return {
         timerId: action.timerId,
-        isRunning: true
+        isRunning: true,
       };
     case STOP:
       return {
         timerId: null,
-        isRuninng: false
+        isRuninng: false,
       };
     default:
       return state;

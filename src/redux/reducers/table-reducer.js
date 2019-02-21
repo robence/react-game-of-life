@@ -1,15 +1,18 @@
-import * as api from "../../app-logic/logic";
-import {TOGGLE_ALIVE, MAKE_RANDOM, CLEAR, TICK} from "../types";
+import * as api from '../../app-logic/logic';
+import { TOGGLE_ALIVE, MAKE_RANDOM, CLEAR, TICK } from '../types';
 
 const GRID_HEIGHT = 25;
 const GRID_WIDTH = 40;
 const initialGrid = api.makeGrid(GRID_HEIGHT, GRID_WIDTH);
 
 export default (state = initialGrid, action) => {
+  let table;
+  let cell;
+
   switch (action.type) {
     case TOGGLE_ALIVE:
-      let table = state.slice(0);
-      let cell = table[action.x][action.y];
+      table = state.slice(0);
+      cell = table[action.x][action.y];
       cell.status = !cell.status;
       cell.newBorn = !cell.newBorn;
       return table;
